@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+file1=$1
+file2=$2
+
+foo=`md5sum "$file1" | awk '{print $1}'`
+bar=`md5sum "$file2" | awk '{print $1}'`
+
+echo "$foo $file1"
+echo "$bar $file2"
+
+if [ "$foo" == "$bar" ]
+then 
+  echo "they match"
+else 
+  echo "no match"
+fi
+
